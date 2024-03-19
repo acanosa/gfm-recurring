@@ -5,7 +5,9 @@ import org.gofundme.model.Donation;
 import org.gofundme.model.Donor;
 
 import java.math.BigDecimal;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class SummaryService {
 
@@ -20,7 +22,11 @@ public class SummaryService {
     public String createSummary() {
         StringBuilder builder = new StringBuilder();
         List<Donor> donors = donorService.getAll();
+        //sort in alphabetical order
+        donors = donors.stream().sorted(Comparator.comparing(Donor::getName)).collect(Collectors.toList());
+
         List<Campaign> campaigns = campaignService.getAll();
+        campaigns = campaigns.stream().sorted(Comparator.comparing(Campaign::getName)).collect(Collectors.toList());
         String line;
         builder.append("Donors:\n");
         for(Donor donor: donors) {
