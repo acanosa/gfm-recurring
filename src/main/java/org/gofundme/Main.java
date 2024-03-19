@@ -43,13 +43,7 @@ public class Main {
         }
 
         for(String command: commands) {
-            if(command.startsWith(Command.EXIT.getValue())) {
-                System.out.println("Bye!");
-                break;
-            }
-
             resolver.resolve(command);
-
         }
 
         System.out.println(summaryService.createSummary());
@@ -69,6 +63,6 @@ public class Main {
     }
 
     private static boolean fileWasPassedAsArg(String[] args) {
-        return (args != null || args.length > 0) && args[0].endsWith(".txt");
+        return (args != null && args.length > 0) && args[0].endsWith(".txt");
     }
 }

@@ -3,8 +3,7 @@ package org.gofundme.cli;
 public enum Command {
 
     ADD("Add"),
-    DONATE("Donate"),
-    EXIT("Exit");
+    DONATE("Donate");
 
     private String value;
 
