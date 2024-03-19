@@ -2,6 +2,18 @@
 The application takes a list of commands and generates a summary of all the monthly donations, indicanting donor totals and averages and the total recaudation of campaigns in that month.
 Author: Alejandro Canosa
 
+Here is a sample output of a summary of monthly donations having 3 donors and 2 campaigns:
+```
+Donors:
+Alex: Total: $150 Average: $75
+Benjamin: Total: $60 Average: $60
+Greg: Total: $100 Average: $100
+
+Campaigns:
+HelpTheKids: Total: $50
+SaveTheDogs: Total: $260
+```
+
 ## Getting started
 You will need these tools to build and run the application:
 * Java 17
@@ -25,6 +37,20 @@ You will need these tools to build and run the application:
 3. Take the file to that same location and execute the command `java -jar gfm-recurring.jar YOURTEXTFILE.txt`. You can also use the cat command for input: `cat YOURFILE.txt | java -jar gfm-recurring.jar`
 
 You can execute unit tests by running the command `mvn test`
+
+Here is a sample content for a test file:
+```
+Add Donor Greg $1000
+Add Donor Alex $2000
+Add Donor Benjamin $3000
+Add Campaign SaveTheDogs
+Add Campaign HelpTheKids
+Donate Greg SaveTheDogs $100
+Donate Alex HelpTheKids $50
+Donate Alex SaveTheDogs $100
+Donate Benjamin SaveTheDogs $6000
+Donate Benjamin SaveTheDogs $60
+```
 
 ## Troubleshooting
  
