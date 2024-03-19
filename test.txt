@@ -1,1 +1,10 @@
 Add Donor Greg $1000
+Add Donor Alex $2000
+Add Donor Benjamin $3000
+Add Campaign SaveTheDogs
+Add Campaign HelpTheKids
+Donate Greg SaveTheDogs $100
+Donate Alex HelpTheKids $50
+Donate Alex SaveTheDogs $100
+Donate Benjamin SaveTheDogs $6000
+Donate Benjamin SaveTheDogs $60
