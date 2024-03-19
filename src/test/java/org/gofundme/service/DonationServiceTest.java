@@ -51,6 +51,15 @@ public class DonationServiceTest {
     }
 
     @Test
+    void should_notRegisterDonation_when_amountSurpassesTheDonorMonthlyLimit() {
+        when(donorServiceMock.getByName(DONOR_NAME)).thenReturn(new Donor(DONOR_NAME, MONTHLY_LIMIT));
+
+        Assertions.assertDoesNotThrow(() -> donationService.donate(DONOR_NAME, CAMPAIGN_NAME, new BigDecimal("30000")));
+        verify(donorServiceMock, times(0)).updateDonor(any());
+        verify(campaignServiceMock, times(0)).updateCampaign(any());
+    }
+
+    @Test
     void should_notRegisterDonation_when_exceptionIsThrown() {
         when(donorServiceMock.getByName(DONOR_NAME)).thenThrow(new RuntimeException("test"));
 
