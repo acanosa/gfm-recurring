@@ -20,10 +20,10 @@ public class AddCampaignCommandExecutorStrategy implements CommandExecutor {
         
         if(commandParts.length < 3) {
             System.out.println("Invalid add command: expecting campaign's name. Example: Add Campaign SaveTheDogs");
+        } else {
+            String name = commandParts[2];
+
+            campaignService.addCampaign(name);
         }
-
-        String name = commandParts[2];
-
-        campaignService.addCampaign(name);
     }
 }

@@ -20,8 +20,7 @@ public class InMemoryDonorRepository implements DonorRepository {
 
     @Override
     public void addDonor(String name, BigDecimal monthlyLimit) {
-        Long id = getNewId();
-        Donor newDonor = new Donor(id, name, monthlyLimit);
+        Donor newDonor = new Donor(name, monthlyLimit);
         donors.add(newDonor);
     }
 
@@ -41,9 +40,5 @@ public class InMemoryDonorRepository implements DonorRepository {
 
     public List<Donor> getAll() {
         return donors;
-    }
-
-    private Long getNewId() {
-        return donors.isEmpty() ? 1 : donors.get(donors.size() - 1).getId() + 1;
     }
 }

@@ -9,6 +9,7 @@ import org.gofundme.repository.DonorRepository;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 public class DonationService {
@@ -22,17 +23,22 @@ public class DonationService {
     }
 
     public void donate(String donorName, String campaignName, BigDecimal amount) {
-        Donor donor = donorService.getByName(donorName);
-        Campaign campaign = campaignService.getByName(campaignName);
-        LocalDateTime donationDate = LocalDateTime.now();
+        try {
+            Donor donor = donorService.getByName(donorName);
+            Campaign campaign = campaignService.getByName(campaignName);
+            LocalDateTime donationDate = LocalDateTime.now();
 
-        Donation donation = new Donation(donor, amount, donationDate);
-        campaign.getDonations().add(donation);
-        donor.setDonationQuantity(donor.getDonationQuantity() + 1);
-        donor.setTotalDonated(donor.getTotalDonated().add(amount));
+            Donation donation = new Donation(donor, amount, donationDate);
+            campaign.getDonations().add(donation);
+            donor.setDonationQuantity(donor.getDonationQuantity() + 1);
+            donor.setTotalDonated(donor.getTotalDonated().add(amount));
 
-        campaignService.updateCampaign(campaign);
-        donorService.updateDonor(donor);
+            campaignService.updateCampaign(campaign);
+            donorService.updateDonor(donor);
+        } catch(Exception ex) {
+            System.out.println("Could not complete donation: " + ex.getMessage());
+        }
+
     }
 
 }

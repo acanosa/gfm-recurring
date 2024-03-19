@@ -14,24 +14,16 @@ public class SystemInReader {
         List<String> commands = new ArrayList<>();
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 
-        String x = null;
+        String line;
         try {
-            while( (x = input.readLine()) != null ) {
-                commands.add(x);
+            while( (line = input.readLine()) != null ) {
+                commands.add(line);
             }
+            return commands;
         } catch(IOException ex) {
-            System.out.println("There was an error reading the command");
+            System.out.println("There was an error reading the command: " + ex.getMessage());
+            return new ArrayList<>();
         }
 
-        /*
-        Scanner scanner =  new Scanner(System.in);
-
-        while(scanner.hasNextLine()) {
-            String line = scanner.nextLine();
-            if (line == null) break;
-            commands.add(line);
-        }
-        */
-        return commands;
     }
 }

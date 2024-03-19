@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 
 public class Donor {
 
-    private Long id;
     private String name;
     private BigDecimal monthlyLimit;
     private Long donationQuantity;
@@ -13,21 +12,12 @@ public class Donor {
 
     public Donor() {}
 
-    public Donor(Long id, String name, BigDecimal monthlyLimit) {
-        this.id = id;
+    public Donor(String name, BigDecimal monthlyLimit) {
         this.name = name;
         this.monthlyLimit = monthlyLimit;
         this.totalDonated = BigDecimal.ZERO;
         this.averageDonations = BigDecimal.ZERO;
         this.donationQuantity = 0L;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {

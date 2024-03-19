@@ -19,13 +19,9 @@ public class FileReader {
             }
 
             return commands;
-        } catch(FileNotFoundException ex) {
-            System.out.println("The file does not exist. Check that it is in the same level as the jar application");
-            return new ArrayList<>();
         } catch (IOException e) {
             System.out.println("Error reading file: " + e.getMessage());
             return new ArrayList<>();
-
         }
     }
 }
