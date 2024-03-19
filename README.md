@@ -54,12 +54,12 @@ Donate Benjamin SaveTheDogs $60
 
 ## Troubleshooting
  
-### Error: Unable to access jarfile example
+### Error: Unable to access jarfile
 
-Check that the jar nameis correct or it is in the folder that you are executing the command
+Check that the jar name is correct or if it is in the folder that you are executing the command
 
 ### Invalid target release when building with Maven
 
-Make sure to be using Java 17
+Make sure to be using Java 17 on the command prompt
 
 
