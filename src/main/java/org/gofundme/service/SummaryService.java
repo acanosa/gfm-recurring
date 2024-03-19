@@ -40,7 +40,6 @@ public class SummaryService {
             builder.append(line);
         }
         builder.append("\n");
-        builder.append("\n");
         builder.append("Campaigns: \n");
 
         for(Campaign campaign : campaigns) {

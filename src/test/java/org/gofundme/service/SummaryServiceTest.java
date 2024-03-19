@@ -30,7 +30,6 @@ public class SummaryServiceTest {
     private static final String EXPECTED_SUMMARY = "Donors:\n" +
             "test: Total: $100 Average: $100\n" +
             "\n" +
-            "\n" +
             "Campaigns: \n" +
             "testCampaign: Total: $100\n";
 
