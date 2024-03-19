@@ -1,5 +1,6 @@
 # gfm-recurring
 The application takes a list of commands and generates a summary of all the monthly donations, indicanting donor totals and averages and the total recaudation of campaigns in that month.
+Author: Alejandro Canosa
 
 ## Getting started
 You will need these tools to build and run the application:
@@ -11,14 +12,28 @@ You will need these tools to build and run the application:
 * Add Campaign [Name]: Adds a campaign
 * Donate [DonorName] [CampaignName] $[amount]: Creates a donation of the donor to the campaign. Note: if the monthly limit of the donor is surpassed by the donation, it will be ignored.
 
+## Considerations
+
+* Commands are case sensitive. For example, if you use `Add donor` instead of `Add Donor`, it will do nothing.
+* Commands must be complete. Please refer to the Commands section
+* Input file must be a text file (.txt)
+
 ## Building and testing the application
 
 1. Execute the command `mvn package` to generate the JAR file. It will be created inside the `target` folder
 2. Copy that JAR to the location of your choice
 3. Take the file to that same location and execute the command `java -jar gfm-recurring.jar YOURTEXTFILE.txt`. You can also use the cat command for input: `cat YOURFILE.txt | java -jar gfm-recurring.jar`
 
-## Considerations
+You can execute unit tests by running the command `mvn test`
 
-* Commands are case sensitive. For example, if you use `Add donor` instead of `Add Donor`, it will do nothing.
-* Commands must be complete. Please refer to the Commands section
-* Input file must be a text file (.txt)
+## Troubleshooting
+ 
+### Error: Unable to access jarfile example
+
+Check that the jar nameis correct or it is in the folder that you are executing the command
+
+### Invalid target release when building with Maven
+
+Make sure to be using Java 17
+
+
