@@ -17,7 +17,8 @@ You will need these tools to build and run the application:
 2. Copy that JAR to the location of your choice
 3. Take the file to that same location and execute the command `java -jar gfm-recurring.jar YOURTEXTFILE.txt`. You can also use the cat command for input: `cat YOURFILE.txt | java -jar gfm-recurring.jar`
 
-## Warnings
+## Considerations
 
 * Commands are case sensitive. For example, if you use `Add donor` instead of `Add Donor`, it will do nothing.
 * Commands must be complete. Please refer to the Commands section
+* Input file must be a text file (.txt)
